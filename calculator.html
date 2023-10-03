@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+                padding: 10px;
+                margin:0;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            body {
+                background-color: rgb(127, 220, 232);
+                display:grid;
+                height: 200px;
+                place-items: center;
+            }
+            .main {
+                width: 300px;
+                height: 350px;
+                background-color: rgb(87, 76, 76);
+                position:relative;
+                border: 5px solid rgb(14, 7, 96);
+                border-radius: 3px;
+            }
+            .main input[type='text']{
+                width : 88%;
+                height : 60px;
+                top: 5px;
+                padding: 4px 4px;
+                position: relative;
+                text-align: right;
+                outline: none;
+                font-size: 30px;
+                display:flex;
+                border: 5px solid rgb(1, 1, 20);
+                border-radius: 6px;
+                color:rgb(15, 13, 13);
+                margin: auto;
+            }
+            .btn input[type='button']{
+         width:50px;
+         padding: 2px;
+         left: 4px;
+         margin: 2px 0px;
+         position: relative;
+         height: 40px;
+         cursor: pointer;
+         font-size: 18px;
+         transition: 0.5s;
+         background-color: #27cfab;
+         border-radius: 6px;
+         color: white;
+      }
+        </style>
+        <script>
+            function Solve(val)
+            {
+                var v = document.getElementById('res');
+                v.value+=val;
+            }
+            function Clear()
+            {
+                var inp = document.getElementById('res');
+                inp.value = '';
+            }
+            function Back()
+            {
+                var ev = document.getElementById('res');
+                ev.value = ev.value.slice(0,-1);
+            }
+            function Result()
+            {
+                var n1 = document.getElementById('res').value;
+                var n2 = eval(n1);
+                document.getElementById('res').value = n2;
+            }
+        </script>
+    </head>
+    <body>
+        <div class = "main">
+            <input type = "text" id='res'>
+            <div class = "btn">
+                <input type = "button" value = '(' onclick="Clear()">
+                <input type = "button" value = '%' onclick="Solve('%')">
+                <input type = "button" value = '<-' onclick="Back('<-')">
+                <input type = "button" value = '/' onclick="Solve('/')">
+                <br>
+                <input type = "button" value = '7' onclick="Solve('7')">
+                <input type = "button" value = '8' onclick="Solve('8')">
+                <input type = "button" value = '9' onclick="Solve('9')">
+                <input type = "button" value = 'x' onclick="Solve('*')">
+                <br>
+                <input type = "button" value = '4' onclick="Solve('4')">
+                <input type = "button" value = '5' onclick="Solve('5')">
+                <input type = "button" value = '6' onclick="Solve('6')">
+                <input type = "button" value = '-' onclick="Solve('-')">
+                <br>
+                <input type = "button" value = '1' onclick="Solve('1')">
+                <input type = "button" value = '2' onclick="Solve('2')">
+                <input type = "button" value = '3' onclick="Solve('3')">
+                <input type = "button" value = '+' onclick="Solve('+')">
+                <br>
+                <input type = "button" value = '00' onclick="Solve('00')">
+                <input type = "button" value = '0' onclick="Solve('0')">
+                <input type = "button" value = '.' onclick="Solve('.')">
+                <input type = "button" value = '=' onclick="Result()">
+            </div>
+        </div>
+    </body>
+</html>
